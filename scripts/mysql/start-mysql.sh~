@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+echo "Sucessfully start MySQL" >> /home/ubuntu/wordpress.log
+
+ctx logger info "Sucessfully start MySQL"
