@@ -18,7 +18,7 @@ scriptlets:
  - &startmetric !scriptlet
    id: 1
    scripts:
-    - '~/gatling.sh #WP_HOST benchmark_1'
+    - '~/gatling.sh 54.86.144.41 benchmark_1'
  - &persistresult !scriptlet
    id: 2
    scripts:
