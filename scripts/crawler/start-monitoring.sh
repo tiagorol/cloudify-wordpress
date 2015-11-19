@@ -3,7 +3,7 @@
 set -e
 
 ctx logger info $(ctx instance host_ip)
-ctx logger info $(ctx instance runtime_properties public_ip_address)
+ctx logger info $(ctx instance runtime-properties public_ip_address)
 
 cd /home/ubuntu/
 wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/scripts/crawler/wordpress_integrado.yml
