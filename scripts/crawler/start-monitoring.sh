@@ -2,6 +2,9 @@
 
 set -e
 
+ctx logger info "Inicio do processo..."
+ctx logger info "Escrevendo valores..."
+
 ctx logger info $(ctx instance host_ip)
 #ctx logger info $(ctx source instance runtime_properties public_ip_address)
 
