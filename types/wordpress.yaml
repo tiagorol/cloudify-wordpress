@@ -11,8 +11,6 @@ node_types:
         create: scripts/mysql/install-mysql.sh
         start: scripts/mysql/start-mysql.sh
         stop: scripts/mysql/stop-mysql.sh
-      cloudify.interfaces.monitoring:
-        start: scripts/crawler/start-monitoring.sh
 
   wordpress.nodes.WordpressApplicationModule:
     derived_from: cloudify.nodes.ApplicationModule

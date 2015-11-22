@@ -32,9 +32,6 @@ node_templates:
     type: wordpress.nodes.MySQLDatabase
     properties:
       port: 3306
-    interfaces:
-      cloudify.interfaces.lifecycle:
-        configure: scripts/crawler/start-monitoring.sh
     relationships:
       - type: cloudify.relationships.contained_in
         target: mysql_host
