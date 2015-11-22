@@ -27,6 +27,9 @@ node_templates:
     properties:
       image_id: { get_input: image }
       instance_type: { get_input: size }
+    interfaces:
+      cloudify.interfaces.lifecycle:
+        configure: scripts/crawler/start-monitoring.sh
 
   mysql:
     type: wordpress.nodes.MySQLDatabase
