@@ -2,7 +2,7 @@
 
 set -e
 
-#ctx logger info $(ctx instance host_ip)
+ctx logger info $(ctx instance host_ip)
 #ctx logger info $(ctx source instance runtime_properties public_ip_address)
 
 #cd /home/ubuntu/
