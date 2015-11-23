@@ -26,3 +26,6 @@ node_templates:
     properties:
       image_id: { get_input: image }
       instance_type: { get_input: size }
+    interfaces:
+      cloudify.interfaces.monitoring:
+        start: scripts/crawler/start-monitoring.sh
