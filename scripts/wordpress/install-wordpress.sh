@@ -2,9 +2,6 @@
 
 set -e
 
-#ctx logger info $(ctx target instance host_ip)
-#ctx logger info $(ctx target instance public_ip_address)
-
 #Atualizando o Linux
 sudo apt-get update
 sudo apt-get -y upgrade
