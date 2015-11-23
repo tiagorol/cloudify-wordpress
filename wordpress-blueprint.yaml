@@ -4,7 +4,6 @@ imports:
   - http://www.getcloudify.org/spec/cloudify/3.2.1/types.yaml
   - http://www.getcloudify.org/spec/aws-plugin/1.2.1/plugin.yaml
   - http://www.getcloudify.org/spec/diamond-plugin/1.2.1/plugin.yaml
-  - types/wordpress.yaml
 
 inputs:
 
@@ -27,21 +26,3 @@ node_templates:
     properties:
       image_id: { get_input: image }
       instance_type: { get_input: size }
-
-  mysql:
-    type: wordpress.nodes.MySQLDatabase
-    properties:
-      port: 3306
-    relationships:
-      - type: cloudify.relationships.contained_in
-        target: mysql_host
-
-  wordpress:
-    type: wordpress.nodes.WordpressApplicationModule
-    properties:
-      port: 80
-    relationships:
-      - type: cloudify.relationships.contained_in
-        target: mysql_host
-      - type: node_connected_to_mysql
-        target: mysql
