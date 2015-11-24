@@ -2,4 +2,4 @@
 
 set -e
 
-ctx logger info "Sucessfully start MySQL"
+ctx logger info "MySQL inicializado com sucesso..."

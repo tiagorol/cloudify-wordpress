@@ -2,4 +2,4 @@
 
 set -e
 
-ctx logger info "Sucessfully stop Apache"
+ctx logger info "Apache finalizado com sucesso..."

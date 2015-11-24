@@ -4,6 +4,8 @@ set -e
 
 #Install MYSQL Server
 
+ctx logger info "Inicio da instalacao do MySQL..."
+
 #Password
 mysql_pass=xyz123456
 
@@ -31,4 +33,4 @@ sudo mysql -uroot -p$mysql_pass -e "CREATE USER 'wordpressuser'@'%';"
 sudo mysql -uroot -p$mysql_pass -e "SET PASSWORD FOR 'wordpressuser'@'%'= PASSWORD('$mysql_pass');"
 sudo mysql -uroot -p$mysql_pass -e "GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpressuser'@'%'; FLUSH PRIVILEGES;"
 
-ctx logger info "Sucessfully installed MySQL"
+ctx logger info "MySQL instalado com sucesso..."

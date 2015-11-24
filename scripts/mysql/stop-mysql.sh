@@ -2,4 +2,4 @@
 
 set -e
 
-ctx logger info "Sucessfully stop MySQL"
+ctx logger info "MySQL finalizado com sucesso..."

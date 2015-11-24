@@ -2,4 +2,4 @@
 
 set -e
 
-ctx logger info "Sucessfully start Apache"
+ctx logger info "Apache inicializado com sucesso..."

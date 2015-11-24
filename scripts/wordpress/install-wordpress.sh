@@ -2,6 +2,8 @@
 
 set -e
 
+ctx logger info "Inicio da instalacao do Wordpress..."
+
 #Atualizando o Linux
 sudo apt-get update
 sudo apt-get -y upgrade
@@ -27,4 +29,4 @@ sudo chmod g+w /var/www -R
 #Restart apache
 sudo service apache2 restart
 
-ctx logger info "Sucessfully installed Wordpress"
+ctx logger info "Wordpress instalado com sucesso.."
