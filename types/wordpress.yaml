@@ -9,6 +9,7 @@ node_types:
     interfaces:
       cloudify.interfaces.lifecycle:
         create: scripts/mysql/install-mysql.sh
+        configure: scripts/mysql/configure-mysql.sh
         start: scripts/mysql/start-mysql.sh
         stop: scripts/mysql/stop-mysql.sh
 
@@ -20,7 +21,7 @@ node_types:
         type: integer
     interfaces:
       cloudify.interfaces.lifecycle:
-        configure: scripts/wordpress/install-wordpress.sh
+        create: scripts/wordpress/install-wordpress.sh
         start: scripts/wordpress/start-apache.sh
         stop: scripts/wordpress/stop-apache.sh
 
