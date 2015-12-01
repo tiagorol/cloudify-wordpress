@@ -11,7 +11,7 @@ mysql_pass=xyz123456
 
 #Atualizando o Linux
 sudo apt-get update
-sudo apt-get -y upgrade
+#sudo apt-get -y upgrade
 
 #Non interactive
 export DEBIAN_FRONTEND=noninteractive 

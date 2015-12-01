@@ -6,7 +6,7 @@ ctx logger info "Inicio da instalacao do Wordpress..."
 
 #Atualizando o Linux
 sudo apt-get update
-sudo apt-get -y upgrade
+#sudo apt-get -y upgrade
 
 #Instalando o apache
 sudo apt-get -y install apache2
