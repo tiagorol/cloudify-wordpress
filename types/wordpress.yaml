@@ -25,6 +25,14 @@ node_types:
         start: scripts/wordpress/start-apache.sh
         stop: scripts/wordpress/stop-apache.sh
 
+  wordpress.nodes.Nginx:
+    derived_from: cloudify.nodes.LoadBalancer
+    interfaces:
+      cloudify.interfaces.lifecycle:
+        create: scripts/nginx/install-nginx.sh
+        start: scripts/nginx/start-nginx.sh
+        stop: scripts/nginx/stop-nginx.sh
+
 relationships:
 
   node_connected_to_mysql:
