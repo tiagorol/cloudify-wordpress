@@ -8,7 +8,7 @@ ctx logger info $(ctx instance host_ip)
 ctx logger info $(ctx instance runtime-properties public_ip_address)
 
 cd /home/ubuntu/
-$(ctx instance runtime-properties public_ip_address) > public_ip_address.txt
+echo $(ctx instance runtime-properties public_ip_address) > public_ip_address.txt
 
 #ctx source instance runtime_properties host_wordpress $(ctx instance runtime-properties public_ip_address)
 
