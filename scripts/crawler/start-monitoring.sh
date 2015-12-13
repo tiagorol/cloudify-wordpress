@@ -5,7 +5,7 @@ set -e
 ctx logger info "Inicio dos testes com o Crawler..."
 
 ctx logger info "Setando variavel Nginx - INICIO..."
-ctx source instance runtime_properties HOST_WP2 "12345678"
+ctx instance runtime_properties HOST_WP2 "12345678"
 ctx logger info "Setando variavel Nginx - FIM..."
 
 #cd /home/ubuntu/
