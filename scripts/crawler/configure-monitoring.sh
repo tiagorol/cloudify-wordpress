@@ -7,7 +7,7 @@ ctx logger info "Configurando yml Crawler..."
 ctx logger info $(ctx instance host_ip)
 ctx logger info $(ctx instance runtime-properties public_ip_address)
 
-ctx source instance runtime-properties host_wordpress $(ctx instance runtime-properties public_ip_address)
+ctx source instance runtime_properties host_wordpress $(ctx instance runtime-properties public_ip_address)
 
 #cd /home/ubuntu/
 #wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/crawler/wordpress_integrado.yml
