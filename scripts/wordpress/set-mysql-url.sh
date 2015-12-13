@@ -5,7 +5,7 @@ set -e
 ctx logger info "Configurando IP Mysql Wordpress..."
 
 ctx logger info "Setando variavel - INICIO..."
-ctx source instance runtime_properties HOST_WP1 "1234"
+ctx source instance runtime_properties HOST_WP1 "12345"
 ctx logger info "Setando variavel - FIM..."
 
 #sudo sed -i "s/localhost/$(ctx target instance host_ip)/" /var/www/html/wp-config.php
