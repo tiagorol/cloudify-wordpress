@@ -4,10 +4,6 @@ set -e
 
 ctx logger info "Inicio da instalacao do Nginx..."
 
-ctx logger info "host_wordpress - INICIO..."
-ctx logger info $(ctx instance runtime_properties HOST_WP1)
-ctx logger info "host_wordpress - FIM..."
-
 #Atualizando o Linux
 #sudo apt-get update
 
