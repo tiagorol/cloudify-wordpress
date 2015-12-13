@@ -10,13 +10,10 @@ ctx logger info $(ctx instance runtime-properties public_ip_address)
 cd /home/ubuntu/
 echo $(ctx instance runtime-properties public_ip_address) > public_ip_address.txt
 
-#ctx source instance runtime_properties host_wordpress $(ctx instance runtime-properties public_ip_address)
+wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/crawler/wordpress_integrado.yml
+sudo sed -i "s/#WP_HOST/$(ctx instance runtime-properties public_ip_address)/" /home/ubuntu/wordpress_integrado.yml
 
-#cd /home/ubuntu/
-#wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/crawler/wordpress_integrado.yml
-#sudo sed -i "s/#WP_HOST/$(ctx instance runtime-properties public_ip_address)/" /home/ubuntu/wordpress_integrado.yml
-
-#wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/wordpress/wordpress.sql
-#sudo sed -i "s/#WP_HOST/$(ctx instance runtime-properties public_ip_address)/" /home/ubuntu/wordpress.sql
+wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/wordpress/wordpress.sql
+sudo sed -i "s/#WP_HOST/$(ctx instance runtime-properties public_ip_address)/" /home/ubuntu/wordpress.sql
 
 ctx logger info "Yml do Crawler configurado com sucesso..."
