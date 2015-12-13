@@ -31,6 +31,12 @@ node_templates:
       cloudify.interfaces.monitoring:
         start: scripts/crawler/configure-monitoring.sh
 
+  nginx_host:
+    type: cloudify.aws.nodes.Instance
+    properties:
+      image_id: { get_input: image }
+      instance_type: { get_input: size }
+
   mysql:
     type: wordpress.nodes.MySQLDatabase
     properties:
@@ -38,6 +44,12 @@ node_templates:
     relationships:
       - type: cloudify.relationships.contained_in
         target: mysql_host
+
+  nginx:
+    type: wordpress.nodes.Nginx
+    relationships:
+      - type: cloudify.relationships.contained_in
+        target: nginx_host
 
   wordpress:
     type: wordpress.nodes.WordpressApplicationModule
