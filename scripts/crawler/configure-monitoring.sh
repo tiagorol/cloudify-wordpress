@@ -7,6 +7,10 @@ ctx logger info "Configurando yml Crawler..."
 ctx logger info $(ctx instance host_ip)
 ctx logger info $(ctx instance runtime-properties public_ip_address)
 
+ctx logger info "Setando variavel - INICIO..."
+ctx source instance runtime_properties mongo_ip_address "1234"
+ctx logger info "Setando variavel - FIM..."
+
 #ctx source instance runtime_properties host_wordpress $(ctx instance runtime-properties public_ip_address)
 
 #cd /home/ubuntu/
