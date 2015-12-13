@@ -63,3 +63,5 @@ node_templates:
         target: mysql_host
       - type: node_connected_to_mysql
         target: mysql
+      - type: node_connected_to_nginx
+        target: mysql
