@@ -4,8 +4,10 @@ set -e
 
 ctx logger info "Inicio da configuracao do Nginx..."
 
-ctx logger info "host_nginx - INICIO..."
+ctx logger info "host_nginx - INICIO 1..."
 ctx logger info $(ctx target instance runtime_properties HOST_WP2)
+ctx logger info "host_nginx - INICIO 2..."
+ctx logger info $(ctx target instance runtime_properties HOST_WP3)
 ctx logger info "host_nginx - FIM..."
 
 ctx logger info "Configuracao Nginx com sucesso..."

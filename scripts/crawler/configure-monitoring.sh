@@ -7,6 +7,10 @@ ctx logger info "Configurando yml Crawler..."
 ctx logger info $(ctx instance host_ip)
 ctx logger info $(ctx instance runtime-properties public_ip_address)
 
+ctx logger info "SETENADO IP - INICIO..."
+ctx instance runtime_properties HOST_WP3 $(ctx instance runtime-properties public_ip_address)
+ctx logger info "SETENADO IP - FIM..."
+
 #ctx source instance runtime_properties host_wordpress $(ctx instance runtime-properties public_ip_address)
 
 #cd /home/ubuntu/
