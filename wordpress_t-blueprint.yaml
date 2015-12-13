@@ -45,12 +45,6 @@ node_templates:
       - type: cloudify.relationships.contained_in
         target: mysql_host
 
-  nginx:
-    type: wordpress.nodes.Nginx
-    relationships:
-      - type: cloudify.relationships.contained_in
-        target: nginx_host
-
   wordpress:
     type: wordpress.nodes.WordpressApplicationModule
     properties:
@@ -63,5 +57,11 @@ node_templates:
         target: mysql_host
       - type: node_connected_to_mysql
         target: mysql
+
+  nginx:
+    type: wordpress.nodes.Nginx
+    relationships:
+      - type: cloudify.relationships.contained_in
+        target: nginx_host
       - type: node_connected_to_nginx
-        target: nginx
+        target: wordpress
