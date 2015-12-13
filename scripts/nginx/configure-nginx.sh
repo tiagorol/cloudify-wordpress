@@ -6,7 +6,7 @@ ctx logger info "Inicio da configuracao do Nginx..."
 ctx logger info $(ctx target instance runtime_properties HOST_WP2)
 
 ctx logger info "Setando a variavel..."
-HOST_WP1 = $(ctx target instance runtime_properties HOST_WP2)
+HOST_WP1=$(ctx target instance runtime_properties HOST_WP2)
 ctx logger info "Variavel setada..."
 
 ctx logger info "Editando via sed..."
