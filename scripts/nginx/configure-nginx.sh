@@ -2,6 +2,9 @@
 
 set -e
 
+#git config --global user.name "cludify"
+#git config --global user.email "cludify.teste@gmail.com"
+
 ctx logger info "Inicio da configuracao do Nginx..."
 ctx logger info $(ctx target instance runtime_properties HOST_WP1)
 

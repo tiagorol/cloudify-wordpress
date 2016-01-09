@@ -30,38 +30,3 @@ node_templates:
     interfaces:
       cloudify.interfaces.monitoring:
         start: scripts/crawler/configure-monitoring.sh
-
-  nginx_host:
-    type: cloudify.aws.nodes.Instance
-    properties:
-      image_id: { get_input: image }
-      instance_type: { get_input: size }
-
-  mysql:
-    type: wordpress.nodes.MySQLDatabase
-    properties:
-      port: 3306
-    relationships:
-      - type: cloudify.relationships.contained_in
-        target: mysql_host
-
-  wordpress:
-    type: wordpress.nodes.WordpressApplicationModule
-    properties:
-      port: 80
-    interfaces:
-      cloudify.interfaces.monitoring:
-        start: scripts/crawler/start-monitoring.sh
-    relationships:
-      - type: cloudify.relationships.contained_in
-        target: mysql_host
-      - type: node_connected_to_mysql
-        target: mysql
-
-  nginx:
-    type: wordpress.nodes.Nginx
-    relationships:
-      - type: cloudify.relationships.contained_in
-        target: nginx_host
-      - type: node_connected_to_nginx
-        target: wordpress
