@@ -19,22 +19,26 @@ ctx logger info "Instalando o git..."
 sudo apt-get -y install git
 ctx logger info "Git instalado com sucesso..."
 
+ctx logger info "Verificando home do usuario..."
+sudo su - ubuntu -c /usr/bin/env | grep HOME > home.txt
+ctx logger info "Home verificado com sucesso..."
+
 ctx logger info "Configurando o github..."
 git config --global user.name "cludify"
 git config --global user.email "cludify.teste@gmail.com"
 ctx logger info "Github configurado com sucesso..."
 
 ctx logger info "Clonando o cloudify..."
-git clone https://github.com/cludify/cloudify.git
+sudo git clone https://github.com/cludify/cloudify.git
 ctx logger info "Cloudify clonado com sucesso..."
 
 ctx logger info "Copiando o arquivo de configuracao do github..."
-cp /home/ubuntu/cloudify/.netrc . 
+sudo cp /home/ubuntu/cloudify/.netrc . 
 ctx logger info "Arquivo de configuracao configuracao do github copiado com sucesso..."
 
 ctx logger info "Editando o arquivo via SED..."
 cd /home/ubuntu/cloudify/
-cp nginx_template.conf nginx.conf
+sudo cp nginx_template.conf nginx.conf
 sudo sed -i "s/#server HOST_WP1 weight=1;/server $HOST_WP1 weight=1;/" nginx.conf
 ctx logger info "Arquivo editado com sucesso..."
 
