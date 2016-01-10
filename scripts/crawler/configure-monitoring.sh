@@ -17,12 +17,16 @@ ctx logger info "Inicio - guardando o ip publico 4..."
 HOST_PUBLIC_DB=$(ctx instance runtime-properties public_ip_address)
 ctx logger info "Inicio - guardando o ip publico 5..."
 
+ctx logger info "Atualizando..."
 sudo apt-get update
 
+ctx logger info "Instalando o git..."
 sudo apt-get -y install git
 
+ctx logger info "Clonando o git..."
 git clone https://github.com/cludify/cloudify.git
 
+ctx logger info "Copiando os arquivos de configuracao..."
 sudo cp /home/ubuntu/cloudify/.netrc .
 sudo cp /home/ubuntu/cloudify/.gitconfig .
 
