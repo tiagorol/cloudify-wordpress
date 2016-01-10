@@ -9,7 +9,8 @@ ctx logger info $(ctx instance runtime-properties public_ip_address)
 
 cd /home/ubuntu/
 echo $(ctx instance runtime-properties public_ip_address) > public_ip_address.txt
-HOST_WP1=$(ctx instance runtime-properties public_ip_address)
+HOST_PRIVATE_DB=$(ctx instance host_ip)
+HOST_PUBLIC_DB=$(ctx instance runtime-properties public_ip_address)
 
 sudo apt-get update
 
@@ -20,22 +21,30 @@ git clone https://github.com/cludify/cloudify.git
 sudo cp /home/ubuntu/cloudify/.netrc .
 sudo cp /home/ubuntu/cloudify/.gitconfig .
 
+ctx logger info "Inicio configuracoes ip..."
 cd /home/ubuntu/cloudify/
+ctx logger info "Fazendo as copias dos arquivos..."
 sudo cp nginx_template.conf nginx.conf
 sudo cp template_private_ip_db.txt private_ip_db.txt
 sudo cp template_public_ip_db.txt public_ip_db.txt
-sudo sed -i "s/#server HOST_WP1 weight=1;/server $HOST_WP1 weight=1;/" nginx.conf
-sudo sed -i "s/private_ip_db/$(ctx instance host_ip)/" private_ip_db.txt
-sudo sed -i "s/public_ip_db/$(ctx instance runtime-properties public_ip_address)/" public_ip_db.txt
+ctx logger info "Substituindo via SED1..."
+sudo sed -i "s/#server HOST_WP1 weight=1;/server $HOST_PUBLIC_DB weight=1;/" nginx.conf
+ctx logger info "Substituindo via SED2..."
+sudo sed -i "s/private_ip_db/$HOST_PRIVATE_DB/" private_ip_db.txt
+ctx logger info "Substituindo via SED3..."
+sudo sed -i "s/public_ip_db/$HOST_PUBLIC_DB/" public_ip_db.txt
 
+ctx logger info "Fazendo o commit..."
 git commit -am "."
 git push origin master
 
+ctx logger info "Substituindo via SED4..."
 cd /home/ubuntu/
 wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/crawler/wordpress_integrado.yml
-sudo sed -i "s/#WP_HOST/$(ctx instance runtime-properties public_ip_address)/" /home/ubuntu/wordpress_integrado.yml
+sudo sed -i "s/#WP_HOST/$HOST_PUBLIC_DB/" /home/ubuntu/wordpress_integrado.yml
 
+ctx logger info "Substituindo via SED5..."
 wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/wordpress/wordpress.sql
-sudo sed -i "s/#WP_HOST/$(ctx instance runtime-properties public_ip_address)/" /home/ubuntu/wordpress.sql
+sudo sed -i "s/#WP_HOST/$HOST_PUBLIC_DB/" /home/ubuntu/wordpress.sql
 
 ctx logger info "Yml do Crawler configurado com sucesso..."
