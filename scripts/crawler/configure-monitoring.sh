@@ -19,6 +19,10 @@ ctx logger info "Instalando o git..."
 sudo apt-get -y install git
 ctx logger info "Git instalado com sucesso..."
 
+ctx logger info "Setando a variavel home..."
+env HOME=/home/ubuntu
+ctx logger info "Variavel home setada com sucesso..."
+
 ctx logger info "Verificando home do usuario..."
 sudo su - ubuntu -c /usr/bin/env | grep HOME > home.txt
 ctx logger info "Home verificado com sucesso..."
