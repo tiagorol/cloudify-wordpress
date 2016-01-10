@@ -7,10 +7,15 @@ ctx logger info "Configurando yml Crawler..."
 ctx logger info $(ctx instance host_ip)
 ctx logger info $(ctx instance runtime-properties public_ip_address)
 
+ctx logger info "Inicio - guardando o ip publico 1..."
 cd /home/ubuntu/
+ctx logger info "Inicio - guardando o ip publico 2..."
 echo $(ctx instance runtime-properties public_ip_address) > public_ip_address.txt
+ctx logger info "Inicio - guardando o ip publico 3..."
 HOST_PRIVATE_DB=$(ctx instance host_ip)
+ctx logger info "Inicio - guardando o ip publico 4..."
 HOST_PUBLIC_DB=$(ctx instance runtime-properties public_ip_address)
+ctx logger info "Inicio - guardando o ip publico 5..."
 
 sudo apt-get update
 
