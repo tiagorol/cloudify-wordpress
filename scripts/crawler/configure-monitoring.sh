@@ -43,17 +43,17 @@ sudo apt-get -y install git
 #ctx logger info "Substituindo via SED3..."
 #sudo sed -i "s/public_ip_db/$HOST_PUBLIC_DB/" public_ip_db.txt
 
-ctx logger info "Fazendo o commit..."
-git commit -am "."
-git push origin master
+#ctx logger info "Fazendo o commit..."
+#git commit -am "."
+#git push origin master
 
-ctx logger info "Substituindo via SED4..."
-cd /home/ubuntu/
-wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/crawler/wordpress_integrado.yml
-sudo sed -i "s/#WP_HOST/$HOST_PUBLIC_DB/" /home/ubuntu/wordpress_integrado.yml
+#ctx logger info "Substituindo via SED4..."
+#cd /home/ubuntu/
+#wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/crawler/wordpress_integrado.yml
+#sudo sed -i "s/#WP_HOST/$HOST_PUBLIC_DB/" /home/ubuntu/wordpress_integrado.yml
 
-ctx logger info "Substituindo via SED5..."
-wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/wordpress/wordpress.sql
-sudo sed -i "s/#WP_HOST/$HOST_PUBLIC_DB/" /home/ubuntu/wordpress.sql
+#ctx logger info "Substituindo via SED5..."
+#wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/wordpress/wordpress.sql
+#sudo sed -i "s/#WP_HOST/$HOST_PUBLIC_DB/" /home/ubuntu/wordpress.sql
 
 ctx logger info "Yml do Crawler configurado com sucesso..."
