@@ -20,28 +20,28 @@ ctx logger info "Inicio - guardando o ip publico 5..."
 ctx logger info "Atualizando..."
 sudo apt-get update
 
-ctx logger info "Instalando o git..."
+#ctx logger info "Instalando o git..."
 sudo apt-get -y install git
 
-ctx logger info "Clonando o git..."
-git clone https://github.com/cludify/cloudify.git
+#ctx logger info "Clonando o git..."
+#git clone https://github.com/cludify/cloudify.git
 
-ctx logger info "Copiando os arquivos de configuracao..."
-sudo cp /home/ubuntu/cloudify/.netrc .
-sudo cp /home/ubuntu/cloudify/.gitconfig .
+#ctx logger info "Copiando os arquivos de configuracao..."
+#sudo cp /home/ubuntu/cloudify/.netrc .
+#sudo cp /home/ubuntu/cloudify/.gitconfig .
 
-ctx logger info "Inicio configuracoes ip..."
-cd /home/ubuntu/cloudify/
-ctx logger info "Fazendo as copias dos arquivos..."
-sudo cp nginx_template.conf nginx.conf
-sudo cp template_private_ip_db.txt private_ip_db.txt
-sudo cp template_public_ip_db.txt public_ip_db.txt
-ctx logger info "Substituindo via SED1..."
-sudo sed -i "s/#server HOST_WP1 weight=1;/server $HOST_PUBLIC_DB weight=1;/" nginx.conf
-ctx logger info "Substituindo via SED2..."
-sudo sed -i "s/private_ip_db/$HOST_PRIVATE_DB/" private_ip_db.txt
-ctx logger info "Substituindo via SED3..."
-sudo sed -i "s/public_ip_db/$HOST_PUBLIC_DB/" public_ip_db.txt
+#ctx logger info "Inicio configuracoes ip..."
+#cd /home/ubuntu/cloudify/
+#ctx logger info "Fazendo as copias dos arquivos..."
+#sudo cp nginx_template.conf nginx.conf
+#sudo cp template_private_ip_db.txt private_ip_db.txt
+#sudo cp template_public_ip_db.txt public_ip_db.txt
+#ctx logger info "Substituindo via SED1..."
+#sudo sed -i "s/#server HOST_WP1 weight=1;/server $HOST_PUBLIC_DB weight=1;/" nginx.conf
+#ctx logger info "Substituindo via SED2..."
+#sudo sed -i "s/private_ip_db/$HOST_PRIVATE_DB/" private_ip_db.txt
+#ctx logger info "Substituindo via SED3..."
+#sudo sed -i "s/public_ip_db/$HOST_PUBLIC_DB/" public_ip_db.txt
 
 ctx logger info "Fazendo o commit..."
 git commit -am "."
