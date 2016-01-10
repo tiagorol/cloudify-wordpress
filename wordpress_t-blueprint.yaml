@@ -44,3 +44,11 @@ node_templates:
     relationships:
       - type: cloudify.relationships.contained_in
         target: mysql_host
+
+  wordpress:
+    type: wordpress.nodes.WordpressApplicationModule
+    properties:
+      port: 80
+    relationships:
+      - type: cloudify.relationships.contained_in
+        target: wordpress_host
