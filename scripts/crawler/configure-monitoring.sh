@@ -27,14 +27,11 @@ sudo sed -i "s/#server HOST_WP1 weight=1;/server $HOST_WP1 weight=1;/" nginx.con
 git commit -am "."
 git push origin master
 
-ctx logger info "Inicio - Wget sed 1..."
+cd /home/ubuntu/
 wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/crawler/wordpress_integrado.yml
 sudo sed -i "s/#WP_HOST/$(ctx instance runtime-properties public_ip_address)/" /home/ubuntu/wordpress_integrado.yml
-ctx logger info "Fim - Wget sed 1..."
 
-ctx logger info "Inicio - Wget sed 2..."
 wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/wordpress/wordpress.sql
 sudo sed -i "s/#WP_HOST/$(ctx instance runtime-properties public_ip_address)/" /home/ubuntu/wordpress.sql
-ctx logger info "Fim - Wget sed 2..."
 
 ctx logger info "Yml do Crawler configurado com sucesso..."
