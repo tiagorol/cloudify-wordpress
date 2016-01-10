@@ -19,25 +19,13 @@ ctx logger info "Instalando o git..."
 sudo apt-get -y install git
 ctx logger info "Git instalado com sucesso..."
 
-ctx logger info "Setando a variavel home..."
-env HOME=/home/ubuntu
-ctx logger info "Variavel home setada com sucesso..."
-
-ctx logger info "Verificando home do usuario..."
-sudo su - ubuntu -c /usr/bin/env | grep HOME > home.txt
-ctx logger info "Home verificado com sucesso..."
-
-ctx logger info "Configurando o github..."
-git config --global user.name "cludify"
-git config --global user.email "cludify.teste@gmail.com"
-ctx logger info "Github configurado com sucesso..."
-
 ctx logger info "Clonando o cloudify..."
-sudo git clone https://github.com/cludify/cloudify.git
+git clone https://github.com/cludify/cloudify.git
 ctx logger info "Cloudify clonado com sucesso..."
 
 ctx logger info "Copiando o arquivo de configuracao do github..."
-sudo cp /home/ubuntu/cloudify/.netrc . 
+sudo cp /home/ubuntu/cloudify/.netrc .
+sudo cp /home/ubuntu/cloudify/.gitconfig .
 ctx logger info "Arquivo de configuracao configuracao do github copiado com sucesso..."
 
 ctx logger info "Editando o arquivo via SED..."
