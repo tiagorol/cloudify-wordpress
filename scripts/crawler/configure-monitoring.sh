@@ -22,7 +22,11 @@ sudo cp /home/ubuntu/cloudify/.gitconfig .
 
 cd /home/ubuntu/cloudify/
 sudo cp nginx_template.conf nginx.conf
+sudo cp template_private_ip_db.txt private_ip_db.txt
+sudo cp template_public_ip_db.txt public_ip_db.txt
 sudo sed -i "s/#server HOST_WP1 weight=1;/server $HOST_WP1 weight=1;/" nginx.conf
+sudo sed -i "s/private_ip_db/$(ctx instance host_ip)/" private_ip_db.txt
+sudo sed -i "s/public_ip_db/$(ctx instance runtime-properties public_ip_address)/" public_ip_db.txt
 
 git commit -am "."
 git push origin master

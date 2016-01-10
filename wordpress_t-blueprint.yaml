@@ -53,4 +53,4 @@ node_templates:
       - type: cloudify.relationships.contained_in
         target: wordpress_host
       - type: node_connected_to_mysql
-        target: mysql
+        target: wordpress_host

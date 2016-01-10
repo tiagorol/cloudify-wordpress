@@ -4,7 +4,12 @@ set -e
 
 ctx logger info "Configurando IP Mysql Wordpress..."
 
-sudo sed -i "s/localhost/$(ctx target instance host_ip)/" /var/www/html/wp-config.php
+cd /home/ubuntu/
+wget https://raw.githubusercontent.com/cludify/cloudify/master/private_ip_db.txt
+
+HOST_DB=$(cat private_ip_db.txt)
+
+sudo sed -i "s/localhost/$HOST_DB/" /var/www/html/wp-config.php
 sudo sed -i "s/password_here/xyz123456/" /var/www/html/wp-config.php
 sudo sed -i "s/username_here/wordpressuser/" /var/www/html/wp-config.php
 sudo sed -i "s/database_name_here/wordpress/" /var/www/html/wp-config.php
