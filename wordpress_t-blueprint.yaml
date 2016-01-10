@@ -30,3 +30,17 @@ node_templates:
     interfaces:
       cloudify.interfaces.monitoring:
         start: scripts/crawler/configure-monitoring.sh
+
+  wordpress_host:
+    type: cloudify.aws.nodes.Instance
+    properties:
+      image_id: { get_input: image }
+      instance_type: { get_input: size }
+
+  mysql:
+    type: wordpress.nodes.MySQLDatabase
+    properties:
+      port: 3306
+    relationships:
+      - type: cloudify.relationships.contained_in
+        target: mysql_host
