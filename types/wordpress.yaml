@@ -22,6 +22,7 @@ node_types:
     interfaces:
       cloudify.interfaces.lifecycle:
         create: scripts/wordpress/install-wordpress.sh
+        configure: scripts/wordpress/set-mysql-url.sh
         start: scripts/wordpress/start-apache.sh
         stop: scripts/wordpress/stop-apache.sh
 
