@@ -47,13 +47,13 @@ ctx logger info "Fazendo o commit..."
 git commit -am "."
 git push origin master
 
-ctx logger info "Substituindo via SED4..."
-cd /home/ubuntu/
-wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/crawler/wordpress_integrado.yml
-sudo sed -i "s/#WP_HOST/$HOST_PUBLIC_DB/" /home/ubuntu/wordpress_integrado.yml
+#ctx logger info "Substituindo via SED4..."
+#cd /home/ubuntu/
+#wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/crawler/wordpress_integrado.yml
+#sudo sed -i "s/#WP_HOST/$HOST_PUBLIC_DB/" /home/ubuntu/wordpress_integrado.yml
 
-ctx logger info "Substituindo via SED5..."
-wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/wordpress/wordpress.sql
-sudo sed -i "s/#WP_HOST/$HOST_PUBLIC_DB/" /home/ubuntu/wordpress.sql
+#ctx logger info "Substituindo via SED5..."
+#wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/wordpress/wordpress.sql
+#sudo sed -i "s/#WP_HOST/$HOST_PUBLIC_DB/" /home/ubuntu/wordpress.sql
 
 ctx logger info "Yml do Crawler configurado com sucesso..."
