@@ -28,6 +28,7 @@ sudo cp template_public_ip_wp.txt public_ip_wp.txt
 sudo sed -i "s/private_ip_wp/$HOST_PRIVATE_WP/" private_ip_wp.txt
 sudo sed -i "s/public_ip_wp/$HOST_PUBLIC_WP/" public_ip_wp.txt
 
+git pull
 git commit -am "."
 git push origin master
 
