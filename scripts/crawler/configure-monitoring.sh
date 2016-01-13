@@ -24,6 +24,7 @@ ctx logger info "Instalando o git..."
 sudo apt-get -y install git
 
 ctx logger info "Clonando o git..."
+rm -rf cloudify
 git clone https://github.com/cludify/cloudify.git
 
 ctx logger info "Copiando os arquivos de configuracao..."
