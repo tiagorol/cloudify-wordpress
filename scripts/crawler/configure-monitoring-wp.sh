@@ -15,6 +15,7 @@ sudo apt-get update
 
 sudo apt-get -y install git
 
+rm -rf cloudify
 git clone https://github.com/cludify/cloudify.git
 
 sudo cp /home/ubuntu/cloudify/.netrc .
