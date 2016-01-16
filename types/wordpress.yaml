@@ -31,8 +31,8 @@ node_types:
     interfaces:
       cloudify.interfaces.lifecycle:
         create: scripts/nginx/install-nginx.sh
-        configure: scripts/nginx/set-mysql-url.sh
-        start: scripts/nginx/configure-nginx.sh
+        configure: scripts/nginx/configure-nginx.sh
+        start: scripts/nginx/start-nginx.sh
         stop: scripts/nginx/stop-nginx.sh
 
 relationships:
