@@ -15,9 +15,4 @@ sudo service nginx start
 sudo update-rc.d nginx defaults
 sudo service nginx restart
 
-#Adicionando o arquivo de configuracao
-cd /home/ubuntu/
-wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/nginx/nginx.conf
-sudo cp nginx.conf /etc/nginx/
-
 ctx logger info "Nginx instalado com sucesso.."

@@ -2,18 +2,11 @@
 
 set -e
 
-#git config --global user.name "cludify"
-#git config --global user.email "cludify.teste@gmail.com"
+ctx logger info "Incio da Configuracao do Nginx..."
 
-ctx logger info "Inicio da configuracao do Nginx..."
-ctx logger info $(ctx target instance runtime_properties HOST_WP1)
-
-ctx logger info "Setando a variavel..."
-HOST_WP1=$(ctx target instance runtime_properties HOST_WP1)
-ctx logger info "Variavel setada..."
-
-ctx logger info "Editando via sed..."
-sudo sed -i "s/#server HOST_WP1 weight=1;/server $HOST_WP1 weight=1;/" /etc/nginx/nginx.conf
-ctx logger info "Editando via sed - OK OK ..."
+#Adicionando o arquivo de configuracao
+cd /home/ubuntu/
+wget https://raw.githubusercontent.com/cludify/cloudify/master/nginx.conf
+sudo cp nginx.conf /etc/nginx/
 
 ctx logger info "Configuracao Nginx com sucesso..."
