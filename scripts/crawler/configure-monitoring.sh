@@ -2,7 +2,7 @@
 
 set -e
 
-ctx logger info "Configurando yml Crawler..."
+ctx logger info "Configurando Monitoramento BD..."
 
 ctx logger info $(ctx instance host_ip)
 ctx logger info $(ctx instance runtime-properties public_ip_address)
@@ -58,4 +58,4 @@ git push origin master
 #wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/wordpress/wordpress.sql
 #sudo sed -i "s/#WP_HOST/$HOST_PUBLIC_DB/" /home/ubuntu/wordpress.sql
 
-ctx logger info "Yml do Crawler configurado com sucesso..."
+ctx logger info "Monitoramento DB configurado com sucesso..."

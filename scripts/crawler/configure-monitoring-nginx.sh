@@ -2,7 +2,7 @@
 
 set -e
 
-ctx logger info "Configurando yml Crawler..."
+ctx logger info "Configurando Monitoramento Nginx..."
 
 ctx logger info $(ctx instance host_ip)
 ctx logger info $(ctx instance runtime-properties public_ip_address)
@@ -22,11 +22,11 @@ sudo cp /home/ubuntu/cloudify/.netrc .
 sudo cp /home/ubuntu/cloudify/.gitconfig .
 
 cd /home/ubuntu/cloudify/
-sudo cp template_private_ip_NG.txt private_ip_NG.txt
-sudo cp template_public_ip_NG.txt public_ip_NG.txt
+sudo cp template_private_ip_ng.txt private_ip_ng.txt
+sudo cp template_public_ip_ng.txt public_ip_ng.txt
 
-sudo sed -i "s/private_ip_NG/$HOST_PRIVATE_NG/" private_ip_NG.txt
-sudo sed -i "s/public_ip_NG/$HOST_PUBLIC_NG/" public_ip_NG.txt
+sudo sed -i "s/private_ip_ng/$HOST_PRIVATE_NG/" private_ip_ng.txt
+sudo sed -i "s/public_ip_ng/$HOST_PUBLIC_NG/" public_ip_ng.txt
 
 git pull
 git commit -am "."
@@ -40,4 +40,4 @@ git push origin master
 #wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/wordpress/wordpress.sql
 #sudo sed -i "s/#WP_HOST/$HOST_PUBLIC_DB/" /home/ubuntu/wordpress.sql
 
-ctx logger info "Yml do Crawler configurado com sucesso..."
+ctx logger info "Monitoramento Nginx configurado com sucesso..."

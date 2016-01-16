@@ -2,7 +2,7 @@
 
 set -e
 
-ctx logger info "Configurando yml Crawler..."
+ctx logger info "Configurando Monitoramento Wp..."
 
 ctx logger info $(ctx instance host_ip)
 ctx logger info $(ctx instance runtime-properties public_ip_address)
@@ -24,9 +24,11 @@ sudo cp /home/ubuntu/cloudify/.gitconfig .
 cd /home/ubuntu/cloudify/
 sudo cp template_private_ip_wp.txt private_ip_wp.txt
 sudo cp template_public_ip_wp.txt public_ip_wp.txt
+sudo cp nginx_template.conf nginx.conf
 
 sudo sed -i "s/private_ip_wp/$HOST_PRIVATE_WP/" private_ip_wp.txt
 sudo sed -i "s/public_ip_wp/$HOST_PUBLIC_WP/" public_ip_wp.txt
+sudo sed -i "s/#server HOST_WP1 weight=1;/server $HOST_PUBLIC_W weight=1;/" nginx.conf
 
 git pull
 git commit -am "."
@@ -40,4 +42,4 @@ git push origin master
 #wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/wordpress/wordpress.sql
 #sudo sed -i "s/#WP_HOST/$HOST_PUBLIC_DB/" /home/ubuntu/wordpress.sql
 
-ctx logger info "Yml do Crawler configurado com sucesso..."
+ctx logger info "Monitoramento Wp configurado com sucesso..."
