@@ -5,7 +5,7 @@ set -e
 ctx logger info "Incio da Configuracao do Nginx..."
 
 ctx logger info "Aguardando instancias Wordpress..."
-sleep 180
+sleep 90
 
 cd /home/ubuntu/
 wget https://raw.githubusercontent.com/cludify/cloudify/master/public_ip_ng.txt
