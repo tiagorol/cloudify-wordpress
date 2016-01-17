@@ -8,7 +8,7 @@ ctx logger info "Restaurando BD Wordpress..."
 mysql_pass=xyz123456
 
 ctx logger info "Aguardando instancias Wordpress..."
-sleep 80
+sleep 90
 
 cd /home/ubuntu/
 wget https://raw.githubusercontent.com/cludify/cloudify/master/public_ip_wp1.txt
