@@ -61,6 +61,9 @@ node_templates:
     type: wordpress.nodes.WordpressApplicationModule
     properties:
       port: 80
+    interfaces:
+      cloudify.interfaces.monitoring:
+        start: scripts/crawler/start-monitoring-single.sh
     relationships:
       - type: cloudify.relationships.contained_in
         target: wordpress_host1
