@@ -30,6 +30,6 @@ sudo sed -i "s/public_ip_wp/$HOST_PUBLIC_WP/" public_ip_wp2.txt
 
 git pull
 git commit -am "."
-git push origin master
+git push -f origin master
 
 ctx logger info "Monitoramento Wp2 configurado com sucesso..."

@@ -30,7 +30,7 @@ sudo sed -i "s/public_ip_ng/$HOST_PUBLIC_NG/" public_ip_ng.txt
 
 git pull
 git commit -am "."
-git push origin master
+git push -f origin master
 
 #cd /home/ubuntu/
 #wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/crawler/wordpress_integrado.yml

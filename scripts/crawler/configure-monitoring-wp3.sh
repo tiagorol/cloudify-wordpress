@@ -30,6 +30,6 @@ sudo sed -i "s/public_ip_wp/$HOST_PUBLIC_WP/" public_ip_wp3.txt
 
 git pull
 git commit -am "."
-git push origin master
+git push -f origin master
 
 ctx logger info "Monitoramento Wp3 configurado com sucesso..."

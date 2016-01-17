@@ -47,7 +47,7 @@ sudo sed -i "s/public_ip_db/$HOST_PUBLIC_DB/" public_ip_db.txt
 ctx logger info "Fazendo o commit..."
 git pull
 git commit -am "."
-git push origin master
+git push -f origin master
 
 #ctx logger info "Substituindo via SED4..."
 #cd /home/ubuntu/
