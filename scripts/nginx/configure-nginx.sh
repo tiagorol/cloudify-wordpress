@@ -27,9 +27,9 @@ sudo mv nginx_template.conf nginx.conf
 sudo sed -i "s/HOST_NGINX/$HOST_NG/" nginx.conf
 sudo sed -i "s/#server HOST_WP1 weight=1;/server $HOST_WP1 weight=1;/" nginx.conf
 sudo sed -i "s/#server HOST_WP2 weight=1;/server $HOST_WP2 weight=1;/" nginx.conf
-#sudo sed -i "s/#server HOST_WP3 weight=1;/server $HOST_WP3 weight=1;/" nginx.conf
-#sudo sed -i "s/#server HOST_WP4 weight=1;/server $HOST_WP4 weight=1;/" nginx.conf
-#sudo sed -i "s/#server HOST_WP5 weight=1;/server $HOST_WP5 weight=1;/" nginx.conf
+sudo sed -i "s/#server HOST_WP3 weight=1;/server $HOST_WP3 weight=1;/" nginx.conf
+sudo sed -i "s/#server HOST_WP4 weight=1;/server $HOST_WP4 weight=1;/" nginx.conf
+sudo sed -i "s/#server HOST_WP5 weight=1;/server $HOST_WP5 weight=1;/" nginx.conf
 sudo cp nginx.conf /etc/nginx/
 
 ctx logger info "Configuracao Nginx com sucesso..."
