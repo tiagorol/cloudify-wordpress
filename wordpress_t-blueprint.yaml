@@ -29,7 +29,7 @@ node_templates:
       instance_type: { get_input: size }
     interfaces:
       cloudify.interfaces.monitoring:
-        start: scripts/crawler/configure-monitoring.sh
+        start: scripts/crawler/configure-monitoring-db.sh
 
   wordpress_host:
     type: cloudify.aws.nodes.Instance

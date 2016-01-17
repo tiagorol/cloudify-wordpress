@@ -29,13 +29,34 @@ node_templates:
       instance_type: { get_input: size }
     interfaces:
       cloudify.interfaces.monitoring:
-        start: scripts/crawler/configure-monitoring.sh
+        start: scripts/crawler/configure-monitoring-db.sh
+
+  wordpress_host1:
+    type: cloudify.aws.nodes.Instance
+    properties:
+      image_id: { get_input: image }
+      instance_type: { get_input: size }
+    interfaces:
+      cloudify.interfaces.monitoring:
+        start: scripts/crawler/configure-monitoring-wp1.sh
+
+  wordpress_host2:
+    type: cloudify.aws.nodes.Instance
+    properties:
+      image_id: { get_input: image }
+      instance_type: { get_input: size }
+    interfaces:
+      cloudify.interfaces.monitoring:
+        start: scripts/crawler/configure-monitoring-wp2.sh
 
   nginx_host:
     type: cloudify.aws.nodes.Instance
     properties:
       image_id: { get_input: image }
       instance_type: { get_input: size }
+    interfaces:
+      cloudify.interfaces.monitoring:
+        start: scripts/crawler/configure-monitoring-nginx.sh
 
   mysql:
     type: wordpress.nodes.MySQLDatabase
@@ -45,21 +66,25 @@ node_templates:
       - type: cloudify.relationships.contained_in
         target: mysql_host
 
+  wordpress1:
+    type: wordpress.nodes.WordpressApplicationModule
+    properties:
+      port: 80
+    relationships:
+      - type: cloudify.relationships.contained_in
+        target: wordpress_host1
+
+  wordpress2:
+    type: wordpress.nodes.WordpressApplicationModule
+    properties:
+      port: 80
+    relationships:
+      - type: cloudify.relationships.contained_in
+        target: wordpress_host2
+
   nginx:
     type: wordpress.nodes.Nginx
     relationships:
       - type: cloudify.relationships.contained_in
         target: nginx_host
 
-  wordpress:
-    type: wordpress.nodes.WordpressApplicationModule
-    properties:
-      port: 80
-    interfaces:
-      cloudify.interfaces.monitoring:
-        start: scripts/crawler/start-monitoring.sh
-    relationships:
-      - type: cloudify.relationships.contained_in
-        target: mysql_host
-      - type: node_connected_to_mysql
-        target: mysql
