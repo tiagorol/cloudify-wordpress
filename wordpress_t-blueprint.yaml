@@ -38,7 +38,7 @@ node_templates:
       instance_type: { get_input: size }
     interfaces:
       cloudify.interfaces.monitoring:
-        start: scripts/crawler/configure-monitoring-wp.sh
+        start: scripts/crawler/configure-monitoring-wp1.sh
 
   nginx_host:
     type: cloudify.aws.nodes.Instance
