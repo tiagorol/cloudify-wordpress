@@ -2,7 +2,7 @@
 
 set -e
 
-ctx logger info "Configurando Monitoramento Wp2..."
+ctx logger info "Configurando Monitoramento Wp5..."
 
 ctx logger info $(ctx instance host_ip)
 ctx logger info $(ctx instance runtime-properties public_ip_address)
@@ -22,14 +22,14 @@ sudo cp /home/ubuntu/cloudify/.netrc .
 sudo cp /home/ubuntu/cloudify/.gitconfig .
 
 cd /home/ubuntu/cloudify/
-sudo cp template_private_ip_wp2.txt private_ip_wp2.txt
-sudo cp template_public_ip_wp2.txt public_ip_wp2.txt
+sudo cp template_private_ip_wp5.txt private_ip_wp5.txt
+sudo cp template_public_ip_wp5.txt public_ip_wp5.txt
 
-sudo sed -i "s/private_ip_wp/$HOST_PRIVATE_WP/" private_ip_wp2.txt
-sudo sed -i "s/public_ip_wp/$HOST_PUBLIC_WP/" public_ip_wp2.txt
+sudo sed -i "s/private_ip_wp/$HOST_PRIVATE_WP/" private_ip_wp5.txt
+sudo sed -i "s/public_ip_wp/$HOST_PUBLIC_WP/" public_ip_wp5.txt
 
 git pull
 git commit -am "."
 git push origin master
 
-ctx logger info "Monitoramento Wp2 configurado com sucesso..."
+ctx logger info "Monitoramento Wp5 configurado com sucesso..."

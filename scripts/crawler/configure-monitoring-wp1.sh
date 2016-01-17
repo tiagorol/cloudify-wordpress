@@ -24,11 +24,9 @@ sudo cp /home/ubuntu/cloudify/.gitconfig .
 cd /home/ubuntu/cloudify/
 sudo cp template_private_ip_wp1.txt private_ip_wp1.txt
 sudo cp template_public_ip_wp1.txt public_ip_wp1.txt
-#sudo cp nginx_template.conf nginx.conf
 
 sudo sed -i "s/private_ip_wp/$HOST_PRIVATE_WP/" private_ip_wp1.txt
 sudo sed -i "s/public_ip_wp/$HOST_PUBLIC_WP/" public_ip_wp1.txt
-#sudo sed -i "s/#server HOST_WP1 weight=1;/server $HOST_PUBLIC_WP weight=1;/" nginx.conf
 
 git pull
 git commit -am "."
