@@ -28,7 +28,7 @@ sudo cp nginx_template.conf nginx.conf
 
 sudo sed -i "s/private_ip_wp/$HOST_PRIVATE_WP/" private_ip_wp.txt
 sudo sed -i "s/public_ip_wp/$HOST_PUBLIC_WP/" public_ip_wp.txt
-sudo sed -i "s/#server HOST_WP1 weight=1;/server $HOST_PUBLIC_W weight=1;/" nginx.conf
+sudo sed -i "s/#server HOST_WP1 weight=1;/server $HOST_PUBLIC_WP weight=1;/" nginx.conf
 
 git pull
 git commit -am "."
