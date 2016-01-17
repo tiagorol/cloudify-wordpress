@@ -15,8 +15,8 @@ sudo apt-get -y install apache2
 sudo apt-get -y install php5-gd php5-mysql libapache2-mod-php5
 
 #Instalando o wordpress
-sudo wget http://wordpress.org/latest.tar.gz
-sudo tar -xzvf latest.tar.gz
+sudo wget http://wordpress.org/wordpress-4.3.1.tar.gz
+sudo tar -xzvf wordpress-4.3.1.tar.gz
 sudo cp wordpress/wp-config-sample.php wordpress/wp-config.php
 sudo chmod 644 wordpress/wp-config.php
 
