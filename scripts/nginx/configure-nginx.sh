@@ -19,9 +19,9 @@ wget https://raw.githubusercontent.com/cludify/cloudify/master/nginx.conf
 HOST_NG=$(cat public_ip_ng.txt)
 HOST_WP1=$(cat public_ip_wp1.txt)
 HOST_WP2=$(cat public_ip_wp2.txt)
-HOST_WP3=$(cat public_ip_wp1.txt)
-HOST_WP4=$(cat public_ip_wp1.txt)
-HOST_WP5=$(cat public_ip_wp1.txt)
+HOST_WP3=$(cat public_ip_wp3.txt)
+HOST_WP4=$(cat public_ip_wp4.txt)
+HOST_WP5=$(cat public_ip_wp5.txt)
 
 sudo sed -i "s/HOST_NGINX/$HOST_NG/" nginx.conf
 sudo sed -i "s/#server HOST_WP1 weight=1;/server $HOST_WP1 weight=1;/" nginx.conf
