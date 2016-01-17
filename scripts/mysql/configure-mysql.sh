@@ -11,9 +11,9 @@ ctx logger info "Aguardando instancias Wordpress..."
 sleep 80
 
 cd /home/ubuntu/
-wget https://raw.githubusercontent.com/cludify/cloudify/master/public_ip_wp.txt
+wget https://raw.githubusercontent.com/cludify/cloudify/master/public_ip_wp1.txt
 
-HOST_PUBLIC_WP=$(cat public_ip_wp.txt)
+HOST_PUBLIC_WP=$(cat public_ip_wp1.txt)
 
 wget https://raw.githubusercontent.com/tiagorol/cloudify-wordpress/master/resources/wordpress/wordpress.sql
 sudo sed -i "s/#WP_HOST/$HOST_PUBLIC_WP/" /home/ubuntu/wordpress.sql
