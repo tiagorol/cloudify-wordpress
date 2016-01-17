@@ -15,9 +15,6 @@ sudo apt-get update
 
 sudo apt-get -y install git
 
-ctx logger info "Aguardando instancias..."
-sleep 30
-
 rm -rf cloudify
 git clone https://github.com/cludify/cloudify.git
 
@@ -25,13 +22,11 @@ sudo cp /home/ubuntu/cloudify/.netrc .
 sudo cp /home/ubuntu/cloudify/.gitconfig .
 
 cd /home/ubuntu/cloudify/
-#sudo cp template_private_ip_wp.txt private_ip_wp.txt
-#sudo cp template_public_ip_wp.txt public_ip_wp.txt
-#sudo cp nginx_template.conf nginx.conf
+sudo cp template_private_ip_wp2.txt private_ip_wp2.txt
+sudo cp template_public_ip_wp2.txt public_ip_wp2.txt
 
-#sudo sed -i "s/private_ip_wp/$HOST_PRIVATE_WP/" private_ip_wp.txt
-#sudo sed -i "s/public_ip_wp/$HOST_PUBLIC_WP/" public_ip_wp.txt
-sudo sed -i "s/#server HOST_WP2 weight=1;/server $HOST_PUBLIC_WP weight=1;/" nginx.conf
+sudo sed -i "s/private_ip_wp/$HOST_PRIVATE_WP/" private_ip_wp2.txt
+sudo sed -i "s/public_ip_wp/$HOST_PUBLIC_WP/" public_ip_wp2.txt
 
 git pull
 git commit -am "."
