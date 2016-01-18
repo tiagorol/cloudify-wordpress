@@ -39,8 +39,7 @@ node_types:
     derived_from: cloudify.nodes.ApplicationModule
     interfaces:
       cloudify.interfaces.lifecycle:
-        configure: 
-          implementation: scripts/test/configure-test.sh
+        configure: scripts/test/configure-test.sh
           inputs:
             private_ip: { get_attribute: [SELF, host_ip] }
             public_ip: { get_attribute: [SELF, public_ip_address] }
