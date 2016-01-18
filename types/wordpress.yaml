@@ -37,12 +37,6 @@ node_types:
 
   wordpress.nodes.Test:
     derived_from: cloudify.nodes.ApplicationModule
-    interfaces:
-      cloudify.interfaces.lifecycle:
-        configure: scripts/test/configure-test.sh
-          inputs:
-            private_ip: { get_attribute: [SELF, host_ip] }
-            public_ip: { get_attribute: [SELF, public_ip_address] }
 
 relationships:
 
