@@ -27,15 +27,10 @@ node_templates:
     properties:
       image_id: { get_input: image }
       instance_type: { get_input: size }
-
-  test:
-    type: wordpress.nodes.Test
     interfaces:
-      cloudify.interfaces.lifecycle:
-        configure: scripts/test/configure-test.sh
+      cloudify.interfaces.lifecycle
+        configure:
+          implementation: scripts/test/configure-test.sh
           inputs:
             private_ip: { get_attribute: [SELF, host_ip] }
             public_ip: { get_attribute: [SELF, public_ip_address] }
-    relationships:
-      - type: cloudify.relationships.contained_in
-        target: test_host
