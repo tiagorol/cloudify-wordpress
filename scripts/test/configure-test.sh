@@ -4,8 +4,7 @@ set -e
 
 ctx logger info "Incio dos Testes..."
 
-ctx logger info "my env variable is 1: ${MY_ENV_VARIABLE1}"
-ctx logger info "my env variable is 2: ${MY_ENV_VARIABLE2}"
+ctx logger info "my env variable is 1: ${MY_ENV_VARIABLE}"
 ctx logger info $(ctx instance host_ip)
 
 #ctx logger info $(private_ip)
