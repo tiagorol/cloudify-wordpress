@@ -33,5 +33,4 @@ node_templates:
           implementation: scripts/test/configure-test.sh
           inputs:
             env:
-              private_ip: { get_attribute: [SELF, host_ip] }
-              public_ip: { get_attribute: [SELF, public_ip_address] }
+              MY_ENV_VARIABLE: { get_attribute: [SELF, host_ip] }
