@@ -28,8 +28,8 @@ node_templates:
       image_id: { get_input: image }
       instance_type: { get_input: size }
     interfaces:
-      cloudify.interfaces.lifecycle:
-        configure:
+      cloudify.interfaces.monitoring:
+        start:
           implementation: scripts/test/configure-test.sh
           inputs:
             private_ip: { get_attribute: [SELF, host_ip] }
