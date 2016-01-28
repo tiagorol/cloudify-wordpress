@@ -33,4 +33,5 @@ node_templates:
           implementation: scripts/test/configure-test.sh
           inputs:
             env:
-              MY_ENV_VARIABLE: { get_attribute: [SELF, host_ip] }
+              MY_ENV_VARIABLE1: { get_attribute: [SELF, host_ip] }
+              MY_ENV_VARIABLE2: { get_property: [SELF, host_ip] }
