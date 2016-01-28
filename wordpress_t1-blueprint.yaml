@@ -28,7 +28,7 @@ node_templates:
       image_id: { get_input: image }
       instance_type: { get_input: size }
     interfaces:
-      cloudify.interfaces.lifecycle
+      cloudify.interfaces.lifecycle:
         configure:
           implementation: scripts/test/configure-test.sh
           inputs:
