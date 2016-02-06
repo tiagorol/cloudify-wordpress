@@ -44,8 +44,8 @@ relationships:
     derived_from: cloudify.relationships.connected_to
     source_interfaces:
       cloudify.interfaces.relationship_lifecycle:
-        preconfigure:
-          implementation: scripts/nginx/preconfigure-nginx.sh
+        postconfigure:
+          implementation: scripts/nginx/postconfigure-nginx.sh
           inputs:
             backend_address:
               default: { get_attribute: [ TARGET, ip ] }
