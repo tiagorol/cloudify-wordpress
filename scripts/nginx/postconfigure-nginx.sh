@@ -13,6 +13,6 @@ HOST_WP="${backend_address}"
 
 cd /etc/nginx/
 
-sudo sed -i "s/#server HOST_WP weight=1;/server $HOST_WP weight=1;/" nginx.conf
+sudo sed -i "0,/#server HOST_WP weight=1;/{s/#server HOST_WP weight=1;/server $HOST_WP weight=1;/}" nginx.conf
 
 ctx logger info "Pre Configuracao Nginx com sucesso..."
