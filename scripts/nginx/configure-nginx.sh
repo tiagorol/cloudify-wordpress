@@ -2,10 +2,14 @@
 
 set -e
 
+cd /home/ubuntu/
+
 ctx logger info "Incio da Configuracao do Nginx..."
 ctx logger info "ctx target instance id"
 
 ctx logger info "current working directory is: ${backend_address}"
+
+echo "IP is: ${backend_address}" >> backend_address.txt
 
 #ctx logger info ${backend_address}
 
