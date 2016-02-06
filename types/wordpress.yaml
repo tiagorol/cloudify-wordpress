@@ -40,6 +40,20 @@ node_types:
 
 relationships:
 
+  nginx_connected_to_vm:
+    derived_from: cloudify.relationships.connected_to
+    source_interfaces:
+      cloudify.interfaces.relationship_lifecycle:
+        preconfigure:
+          implementation: scripts/nginx/configure-nginx.sh
+          inputs:
+            backend_address:
+              description: >
+                The internal address of a virtual machine node
+                that contains your application. This is a runtime property
+                of the target node of this relationship.
+              default: { get_attribute: [ TARGET, ip ] }
+
   node_connected_to_mysql:
     derived_from: cloudify.relationships.connected_to
     target_interfaces:

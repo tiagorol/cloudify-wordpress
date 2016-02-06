@@ -22,15 +22,31 @@ inputs:
 
 node_templates:
 
-  test_host:
+  nginx_host:
     type: cloudify.aws.nodes.Instance
     properties:
       image_id: { get_input: image }
       instance_type: { get_input: size }
-    interfaces:
-      cloudify.interfaces.monitoring:
-        start:
-          implementation: scripts/test/configure-test.sh
-          inputs:
-            env:
-              MY_ENV_VARIABLE: { get_property: [SELF, host_ip] }
+
+  nginx:
+    type: wordpress.nodes.Nginx
+    relationships:
+      - target: nginx_host
+        type: cloudify.relationships.contained_in
+      - target: wordpress_host
+        type: nginx_connected_to_vm
+
+  wordpress_host:
+    type: cloudify.aws.nodes.Instance
+    properties:
+      image_id: { get_input: image }
+      instance_type: { get_input: size }
+
+  wordpress:
+    type: wordpress.nodes.WordpressApplicationModule
+    properties:
+      port: 80
+    relationships:
+      - type: cloudify.relationships.contained_in
+        target: wordpress_host
+
