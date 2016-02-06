@@ -22,7 +22,6 @@ node_types:
     interfaces:
       cloudify.interfaces.lifecycle:
         create: scripts/wordpress/install-wordpress.sh
-        configure: scripts/wordpress/set-mysql-url.sh
         start: scripts/wordpress/start-apache.sh
         stop: scripts/wordpress/stop-apache.sh
 
@@ -54,7 +53,11 @@ relationships:
     derived_from: cloudify.relationships.connected_to
     target_interfaces:
       cloudify.interfaces.relationship_lifecycle:
-        postconfigure: scripts/wordpress/set-mysql-url.sh
+        postconfigure:
+          implementation: scripts/wordpress/set-mysql-url.sh
+          inputs:
+            database_address:
+              default: { get_attribute: [ TARGET, ip ] }
 
   node_connected_to_nginx:
     derived_from: cloudify.relationships.connected_to
