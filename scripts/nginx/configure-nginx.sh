@@ -4,7 +4,10 @@ set -e
 
 ctx logger info "Incio da Configuracao do Nginx..."
 ctx logger info "ctx target instance id"
-ctx logger info ${backend_address}
+
+ctx logger info "current working directory is: ${backend_address}"
+
+#ctx logger info ${backend_address}
 
 #ctx logger info "Aguardando instancias Wordpress..."
 #sleep 180
