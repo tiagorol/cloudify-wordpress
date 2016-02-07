@@ -63,13 +63,7 @@ relationships:
     derived_from: cloudify.relationships.connected_to
     source_interfaces:
       cloudify.interfaces.relationship_lifecycle:
-        postconfigure:
-          implementation: scripts/nginx/postconfigure-mysql.sh
-          inputs:
-            database_address:
-              default: { get_attribute: [ TARGET, ip ] }
-            database_address1:
-              default: { get_attribute: [ TARGET, host_ip ] }
+        postconfigure: scripts/nginx/postconfigure-mysql.sh
 
   node_connected_to_nginx:
     derived_from: cloudify.relationships.connected_to
