@@ -20,12 +20,18 @@ inputs:
     description: >
       User for connecting to agent VM's
 
+  instances_deploy:
+    type: integer
+    description: >
+      Number of instances Wordpress
+
 node_templates:
 
   mysql_host:
     type: cloudify.aws.nodes.Instance
+    instances:
+      deploy: { get_input: instances_deploy }
     properties:
       image_id: { get_input: image }
       instance_type: { get_input: size }
-      name: my_ec2_instance
 
