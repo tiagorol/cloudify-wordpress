@@ -34,7 +34,7 @@ node_templates:
   wordpress_host:
     type: cloudify.aws.nodes.Instance
     instances:
-      deploy: { get_input: instances_deploy }
+      deploy: 1
     properties:
       image_id: { get_input: image }
       instance_type: { get_input: size }
