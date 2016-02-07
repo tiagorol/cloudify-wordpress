@@ -8,6 +8,9 @@ ctx logger info "Incio da Pos Configuracao do Mysql..."
 ctx logger info "backend_address: ${database_address}"
 ctx logger info "backend_address1: ${database_address1}"
 
+ctx logger info "IP DATABASE: $(ctx target instance host_ip)"
+ctx logger info $(ctx target instance host_ip)
+
 #Password
 mysql_pass=xyz123456
 
