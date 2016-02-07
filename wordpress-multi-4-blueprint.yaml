@@ -20,11 +20,6 @@ inputs:
     description: >
       User for connecting to agent VM's
 
-  instances_deploy:
-    type: string
-    description: >
-      Number of instances Wordpress
-
 node_templates:
 
   nginx_host:
@@ -46,7 +41,7 @@ node_templates:
   wordpress_host:
     type: cloudify.aws.nodes.Instance
     instances:
-      deploy: { get_input: instances_deploy }
+      deploy: 4
     properties:
       image_id: { get_input: image }
       instance_type: { get_input: size }
