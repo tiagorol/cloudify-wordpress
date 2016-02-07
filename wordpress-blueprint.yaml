@@ -27,27 +27,6 @@ node_templates:
     properties:
       image_id: { get_input: image }
       instance_type: { get_input: size }
-    interfaces:
-      cloudify.interfaces.monitoring:
-        start: scripts/crawler/configure-monitoring.sh
+      parameters:
+        Name: teste
 
-  mysql:
-    type: wordpress.nodes.MySQLDatabase
-    properties:
-      port: 3306
-    relationships:
-      - type: cloudify.relationships.contained_in
-        target: mysql_host
-
-  wordpress:
-    type: wordpress.nodes.WordpressApplicationModule
-    properties:
-      port: 80
-    interfaces:
-      cloudify.interfaces.monitoring:
-        start: scripts/crawler/start-monitoring.sh
-    relationships:
-      - type: cloudify.relationships.contained_in
-        target: mysql_host
-      - type: node_connected_to_mysql
-        target: mysql
