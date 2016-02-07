@@ -33,9 +33,8 @@ node_types:
         configure: scripts/nginx/configure-nginx.sh
         start: scripts/nginx/start-nginx.sh
         stop: scripts/nginx/stop-nginx.sh
-
-  wordpress.nodes.Test:
-    derived_from: cloudify.nodes.ApplicationModule
+      cloudify.interfaces.monitoring:
+        start: scripts/crawler/start-monitoring.sh
 
 relationships:
 
@@ -54,7 +53,7 @@ relationships:
     source_interfaces:
       cloudify.interfaces.relationship_lifecycle:
         postconfigure:
-          implementation: scripts/wordpress/set-mysql-url.sh
+          implementation: scripts/wordpress/postconfigure-wordpress.sh
           inputs:
             database_address:
               default: { get_attribute: [ TARGET, ip ] }
@@ -63,10 +62,4 @@ relationships:
     derived_from: cloudify.relationships.connected_to
     source_interfaces:
       cloudify.interfaces.relationship_lifecycle:
-        postconfigure: scripts/nginx/postconfigure-mysql.sh
-
-  node_connected_to_nginx:
-    derived_from: cloudify.relationships.connected_to
-    target_interfaces:
-      cloudify.interfaces.relationship_lifecycle:
-        postconfigure: scripts/nginx/configure-nginx.sh
+        postconfigure: scripts/mysql/postconfigure-mysql.sh
