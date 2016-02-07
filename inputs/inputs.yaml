@@ -1,3 +1,4 @@
 image: ami-d05e75b8
 size: m3.medium
 agent_user: ubuntu
+instances_deploy: 3

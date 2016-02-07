@@ -9,16 +9,9 @@ imports:
 inputs:
 
   image:
-    description: >
-      Image to be used when launching agent VM's
-
   size:
-    description: >
-      Flavor of the agent VM's
-
   agent_user:
-    description: >
-      User for connecting to agent VM's
+  instances_deploy:
 
 node_templates:
 
@@ -41,7 +34,7 @@ node_templates:
   wordpress_host:
     type: cloudify.aws.nodes.Instance
     instances:
-      deploy: 1
+      deploy: { get_input: instances_deploy }
     properties:
       image_id: { get_input: image }
       instance_type: { get_input: size }
