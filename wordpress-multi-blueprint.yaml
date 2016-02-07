@@ -21,7 +21,7 @@ inputs:
       User for connecting to agent VM's
 
   instances_deploy:
-    type: integer
+    type: number
     description: >
       Number of instances Wordpress
 
