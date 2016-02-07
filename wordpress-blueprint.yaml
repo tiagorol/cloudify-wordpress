@@ -28,5 +28,5 @@ node_templates:
       image_id: { get_input: image }
       instance_type: { get_input: size }
       parameters:
-        Name: teste
+        name: teste
 
