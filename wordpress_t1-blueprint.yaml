@@ -35,6 +35,8 @@ node_templates:
         type: cloudify.relationships.contained_in
       - target: wordpress_host
         type: nginx_connected_to_vm
+      - target: mysql
+        type: nginx_connected_to_db
 
   wordpress_host:
     type: cloudify.aws.nodes.Instance
