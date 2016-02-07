@@ -33,28 +33,28 @@ node_templates:
     relationships:
       - target: nginx_host
         type: cloudify.relationships.contained_in
-      - target: wordpress_host
-        type: nginx_connected_to_vm
-      - target: mysql
+#      - target: wordpress_host
+#        type: nginx_connected_to_vm
+      - target: mysql_host
         type: nginx_connected_to_db
 
-  wordpress_host:
-    type: cloudify.aws.nodes.Instance
-    instances:
-      deploy: 2
-    properties:
-      image_id: { get_input: image }
-      instance_type: { get_input: size }
+#  wordpress_host:
+#    type: cloudify.aws.nodes.Instance
+#    instances:
+#      deploy: 2
+#    properties:
+#      image_id: { get_input: image }
+#      instance_type: { get_input: size }
 
-  wordpress:
-    type: wordpress.nodes.WordpressApplicationModule
-    properties:
-      port: 80
-    relationships:
-      - type: cloudify.relationships.contained_in
-        target: wordpress_host
-      - type: node_connected_to_mysql
-        target: mysql_host
+#  wordpress:
+#    type: wordpress.nodes.WordpressApplicationModule
+#    properties:
+#      port: 80
+#    relationships:
+#      - type: cloudify.relationships.contained_in
+#        target: wordpress_host
+#      - type: node_connected_to_mysql
+#        target: mysql_host
 
   mysql_host:
     type: cloudify.aws.nodes.Instance
