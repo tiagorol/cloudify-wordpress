@@ -27,5 +27,5 @@ node_templates:
     properties:
       image_id: { get_input: image }
       instance_type: { get_input: size }
-      name: my_ec2_instance
+#      name: my_ec2_instance
 
