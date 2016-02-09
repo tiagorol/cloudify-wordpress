@@ -5,7 +5,8 @@ set -e
 cd /home/ubuntu/
 
 ctx logger info "Configurando IP Mysql Wordpress..."
-ctx logger info "IP DATABASE: ${database_address}"
+ctx logger info "IP DATABASE via inputs: ${database_address}"
+ctx logger info "IP DATABASE via ctx target: $(ctx target instance host_ip)"
 
 HOST_DB="${database_address}"
 

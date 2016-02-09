@@ -56,7 +56,7 @@ relationships:
           implementation: scripts/wordpress/postconfigure-wordpress.sh
           inputs:
             database_address:
-              default: { get_attribute: [ TARGET, ip ] }
+              default: { get_attribute: [ TARGET, host_ip ] }
 
   nginx_connected_to_db:
     derived_from: cloudify.relationships.connected_to

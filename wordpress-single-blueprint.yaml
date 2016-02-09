@@ -32,6 +32,13 @@ node_templates:
     type: wordpress.nodes.MySQLDatabase
     properties:
       port: 3306
+    interfaces:
+      cloudify.interfaces.lifecycle:
+        configure: 
+          implementation: scripts/mysql/postconfigure-mysql.sh
+            inputs:
+              database_address:
+                default: { get_attribute: [ SELF, host_ip ] }
     relationships:
       - type: cloudify.relationships.contained_in
         target: host
@@ -44,7 +51,4 @@ node_templates:
       - type: cloudify.relationships.contained_in
         target: host
       - type: node_connected_to_mysql
-        target: host
-      - type: nginx_connected_to_db
         target: mysql
-

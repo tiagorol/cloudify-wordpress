@@ -8,12 +8,13 @@ ctx logger info "Incio da Pos Configuracao do Mysql..."
 
 ctx logger info "IP usando inputs: ${database_address}"
 
-ctx logger info "IP DATABASE: $(ctx target instance host_ip)"
+#ctx logger info "IP DATABASE: $(ctx target instance host_ip)"
 
 #Password
 mysql_pass=xyz123456
 
-HOST_DB=$(ctx target instance host_ip)
+#HOST_DB=$(ctx target instance host_ip)
+HOST_DB="${database_address}"
 HOST_PUBLIC_NG=$(wget http://ipecho.net/plain -O - -q ; echo)
 
 ctx logger info "HOST_DB: $HOST_DB"
