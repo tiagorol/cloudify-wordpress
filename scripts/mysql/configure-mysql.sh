@@ -6,8 +6,6 @@ ctx logger info "Configurando MySql..."
 
 cd /home/ubuntu/
 
-ctx logger info "Incio da Pos Configuracao do Mysql..."
-
 #Password
 mysql_pass=xyz123456
 

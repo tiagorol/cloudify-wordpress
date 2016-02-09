@@ -58,8 +58,4 @@ relationships:
     derived_from: cloudify.relationships.connected_to
     source_interfaces:
       cloudify.interfaces.relationship_lifecycle:
-        postconfigure: 
-          implementation: scripts/mysql/postconfigure-mysql.sh
-          inputs:
-            database_address:
-              default: { get_attribute: [ TARGET, host_ip ] }
+        postconfigure: scripts/mysql/postconfigure-mysql.sh

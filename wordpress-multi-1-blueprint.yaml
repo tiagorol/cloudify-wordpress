@@ -31,12 +31,12 @@ node_templates:
   nginx:
     type: wordpress.nodes.Nginx
     relationships:
-      - target: nginx_host
-        type: cloudify.relationships.contained_in
-      - target: wordpress_host
-        type: nginx_connected_to_vm
-      - target: mysql
-        type: nginx_connected_to_db
+      - type: cloudify.relationships.contained_in
+        target: nginx_host
+      - type: nginx_connected_to_vm
+        target: wordpress_host
+      - type: nginx_connected_to_db
+        target: mysql
 
   wordpress_host:
     type: cloudify.aws.nodes.Instance
@@ -54,7 +54,7 @@ node_templates:
       - type: cloudify.relationships.contained_in
         target: wordpress_host
       - type: node_connected_to_mysql
-        target: mysql_host
+        target: mysql
 
   mysql_host:
     type: cloudify.aws.nodes.Instance
