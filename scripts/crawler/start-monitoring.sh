@@ -2,6 +2,10 @@
 
 set -e
 
+ctx logger info "Aguardando configuracao instancias WordPress antes de iniciar os testes..."
+
+sleep 120
+
 ctx logger info "Inicio dos testes com o Crawler..."
 
 cd /home/ubuntu/
