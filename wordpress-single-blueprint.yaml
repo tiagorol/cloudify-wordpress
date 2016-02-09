@@ -34,11 +34,7 @@ node_templates:
       port: 3306
     interfaces:
       cloudify.interfaces.lifecycle:
-        configure: 
-          implementation: scripts/mysql/postconfigure-mysql.sh
-            inputs:
-              database_address:
-                default: { get_attribute: [ SELF, host_ip ] }
+        configure: scripts/mysql/configure-mysql.sh
     relationships:
       - type: cloudify.relationships.contained_in
         target: host
