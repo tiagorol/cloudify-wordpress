@@ -44,7 +44,7 @@ node_templates:
       - type: cloudify.relationships.contained_in
         target: host
       - type: node_connected_to_mysql
-        target: host
+        target: mysql
       - type: nginx_connected_to_db
-        target: host
+        target: mysql
 
