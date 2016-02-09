@@ -22,11 +22,29 @@ inputs:
 
 node_templates:
 
-  mysql_host:
+  host:
     type: cloudify.aws.nodes.Instance
-    instances:
-      deploy: { get_input: instances_deploy }
     properties:
       image_id: { get_input: image }
       instance_type: { get_input: size }
+
+  mysql:
+    type: wordpress.nodes.MySQLDatabase
+    properties:
+      port: 3306
+    relationships:
+      - type: cloudify.relationships.contained_in
+        target: host
+
+  wordpress:
+    type: wordpress.nodes.WordpressApplicationModule
+    properties:
+      port: 80
+    relationships:
+      - type: cloudify.relationships.contained_in
+        target: host
+      - type: node_connected_to_mysql
+        target: host
+      - type: nginx_connected_to_db
+        target: host
 
