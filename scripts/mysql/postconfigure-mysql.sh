@@ -6,6 +6,8 @@ cd /home/ubuntu/
 
 ctx logger info "Incio da Pos Configuracao do Mysql..."
 
+ctx logger info "IP usando inputs: ${database_address}"
+
 ctx logger info "IP DATABASE: $(ctx target instance host_ip)"
 
 #Password
