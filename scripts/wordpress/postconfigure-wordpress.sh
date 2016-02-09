@@ -5,10 +5,9 @@ set -e
 cd /home/ubuntu/
 
 ctx logger info "Configurando IP Mysql Wordpress..."
-ctx logger info "IP DATABASE via inputs: ${database_address}"
-ctx logger info "IP DATABASE via ctx target: $(ctx target instance host_ip)"
+ctx logger info "IP DATABASE: $(ctx target instance host_ip)"
 
-HOST_DB="${database_address}"
+HOST_DB=$(ctx target instance host_ip)
 
 sudo sed -i "s/localhost/$HOST_DB/" /var/www/html/wp-config.php
 sudo sed -i "s/password_here/xyz123456/" /var/www/html/wp-config.php

@@ -52,11 +52,7 @@ relationships:
     derived_from: cloudify.relationships.connected_to
     source_interfaces:
       cloudify.interfaces.relationship_lifecycle:
-        postconfigure:
-          implementation: scripts/wordpress/postconfigure-wordpress.sh
-          inputs:
-            database_address:
-              default: { get_attribute: [ TARGET, host_ip ] }
+        postconfigure: scripts/wordpress/postconfigure-wordpress.sh
 
   nginx_connected_to_db:
     derived_from: cloudify.relationships.connected_to
