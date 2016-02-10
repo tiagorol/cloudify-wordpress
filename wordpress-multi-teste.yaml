@@ -24,6 +24,18 @@ inputs:
     description: >
       Host Cloud Crawler
 
+  benchmark_id:
+    description: >
+      Host Cloud Crawler
+
+  rounds:
+    description: >
+      Host Cloud Crawler
+
+  workloads:
+    description: >
+      Host Cloud Crawler
+
 node_templates:
 
   nginx_host:
