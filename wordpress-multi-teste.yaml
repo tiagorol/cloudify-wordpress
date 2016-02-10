@@ -26,15 +26,15 @@ inputs:
 
   benchmark_id:
     description: >
-      Host Cloud Crawler
+      Id Benchmark Cloud Crawler
 
   rounds:
     description: >
-      Host Cloud Crawler
+      Number of Executions Tests
 
   workloads:
     description: >
-      Host Cloud Crawler
+      Workload
 
 node_templates:
 

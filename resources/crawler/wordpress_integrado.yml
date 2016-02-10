@@ -1,7 +1,7 @@
 !benchmark
-id: 1
+id: #benchmark_id
 name: WordPress
-rounds: 1
+rounds: #rounds
 endable: false
 
 providers:
@@ -45,7 +45,7 @@ workloads:
    - *gatling
   functions:
    - !workloadFunction
-    values: "10"
+    values: #workloads
 
 scenarios:
   - !scenario

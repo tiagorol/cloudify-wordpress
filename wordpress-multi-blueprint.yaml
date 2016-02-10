@@ -20,6 +20,22 @@ inputs:
     description: >
       User for connecting to agent VM's
 
+  host_crawler:
+    description: >
+      Host Cloud Crawler
+
+  benchmark_id:
+    description: >
+      Id Benchmark Cloud Crawler
+
+  rounds:
+    description: >
+      Number of Executions Tests
+
+  workloads:
+    description: >
+      Workload
+
 node_templates:
 
   nginx_host:
@@ -30,6 +46,15 @@ node_templates:
 
   nginx:
     type: wordpress.nodes.Nginx
+    interfaces:
+      cloudify.interfaces.monitoring:
+        start: 
+          implementation: scripts/crawler/start-monitoring.sh
+          inputs:
+            host_crawler: { get_property: [SELF, host_crawler] }
+            benchmark_id: { get_property: [SELF, benchmark_id] }
+            rounds: { get_property: [SELF, rounds] }
+            workloads: { get_property: [SELF, workloads] }
     relationships:
       - type: cloudify.relationships.contained_in
         target: nginx_host

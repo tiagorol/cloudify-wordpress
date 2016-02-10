@@ -7,6 +7,18 @@ node_types:
         description: Host Cloud Crawler
         type: string
         default: { get_input: host_crawler }
+      benchmark_id:
+        description: Id Benchmark Cloud Crawler
+        type: string
+        default: { get_input: benchmark_id }
+      rounds:
+        description: Number of Executions Tests
+        type: string
+        default: { get_input: rounds }
+      workloads:
+        description: Workload
+        type: string
+        default: { get_input: workloads }
 
   wordpress.nodes.MySQLDatabase:
     derived_from: cloudify.nodes.DBMS
