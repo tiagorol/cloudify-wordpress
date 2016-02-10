@@ -18,11 +18,11 @@ scriptlets:
  - &startmetric !scriptlet
    id: 1
    scripts:
-    - '~/gatling.sh #WP_HOST benchmark_1'
+    - '~/gatling.sh #WP_HOST benchmark_#benchmark_id'
  - &persistresult !scriptlet
    id: 2
    scripts:
-    - '~/importResult.sh benchmark_1'
+    - '~/importResult.sh benchmark_#benchmark_id'
  - &submit !scriptlet
    id: 3
    scripts:

@@ -34,7 +34,7 @@ node_types:
         stop: scripts/mysql/stop-mysql.sh
 
   wordpress.nodes.WordpressApplicationModule:
-    derived_from: cloudify.nodes.ApplicationModule
+    derived_from: wordpress.nodes.MonitoredServer
     properties:
       port:
         description: Web application port

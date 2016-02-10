@@ -43,6 +43,15 @@ node_templates:
     type: wordpress.nodes.WordpressApplicationModule
     properties:
       port: 80
+    interfaces:
+      cloudify.interfaces.monitoring:
+        start: 
+          implementation: scripts/crawler/start-monitoring.sh
+          inputs:
+            host_crawler: { get_property: [SELF, host_crawler] }
+            benchmark_id: { get_property: [SELF, benchmark_id] }
+            rounds: { get_property: [SELF, rounds] }
+            workloads: { get_property: [SELF, workloads] }
     relationships:
       - type: cloudify.relationships.contained_in
         target: host
