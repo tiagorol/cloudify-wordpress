@@ -41,8 +41,6 @@ node_types:
         configure: scripts/nginx/configure-nginx.sh
         start: scripts/nginx/start-nginx.sh
         stop: scripts/nginx/stop-nginx.sh
-      cloudify.interfaces.monitoring:
-        start: scripts/crawler/start-monitoring.sh
 
 relationships:
 
