@@ -1,5 +1,13 @@
 node_types:
 
+  wordpress.nodes.MonitoredServer:
+    derived_from: cloudify.nodes.Root
+    properties:
+      host_crawler:
+        description: Host Cloud Crawler
+        type: string
+        default: { get_input: host_crawler }
+
   wordpress.nodes.MySQLDatabase:
     derived_from: cloudify.nodes.DBMS
     properties:
@@ -26,11 +34,7 @@ node_types:
         stop: scripts/wordpress/stop-apache.sh
 
   wordpress.nodes.Nginx:
-    derived_from: cloudify.nodes.LoadBalancer
-    properties:
-      host_crawler:
-        description: Host Cloud Crawler
-        type: string
+    derived_from: wordpress.nodes.MonitoredServer
     interfaces:
       cloudify.interfaces.lifecycle:
         create: scripts/nginx/install-nginx.sh

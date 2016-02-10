@@ -34,8 +34,6 @@ node_templates:
 
   nginx:
     type: wordpress.nodes.Nginx
-    properties:
-      host_crawler: { get_input: host_crawler }
     interfaces:
       cloudify.interfaces.monitoring:
         start: 
