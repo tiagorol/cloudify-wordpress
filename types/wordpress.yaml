@@ -27,6 +27,10 @@ node_types:
 
   wordpress.nodes.Nginx:
     derived_from: cloudify.nodes.LoadBalancer
+    properties:
+      host_crawler:
+        description: Host Cloud Crawler
+        type: string
     interfaces:
       cloudify.interfaces.lifecycle:
         create: scripts/nginx/install-nginx.sh
