@@ -3,6 +3,7 @@
 set -e
 
 ctx logger info "Aguardando configuracao instancias WordPress antes de iniciar os testes..."
+ctx logger info "crawler: ${crawler}"
 
 sleep 120
 
