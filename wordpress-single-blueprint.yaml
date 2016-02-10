@@ -20,6 +20,22 @@ inputs:
     description: >
       User for connecting to agent VM's
 
+  host_crawler:
+    description: >
+      Host Cloud Crawler
+
+  benchmark_id:
+    description: >
+      Id Benchmark Cloud Crawler
+
+  rounds:
+    description: >
+      Number of Executions Tests
+
+  workloads:
+    description: >
+      Workload
+
 node_templates:
 
   host:
