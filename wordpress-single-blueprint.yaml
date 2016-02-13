@@ -20,10 +20,6 @@ inputs:
     description: >
       Flavor of the agent VM's WordPress
 
-  subnet_id:
-    description: >
-      Subnet Id
-
   agent_user:
     description: >
       User for connecting to agent VM's
@@ -51,7 +47,6 @@ node_templates:
     properties:
       image_id: { get_input: image }
       instance_type: { get_input: size }
-      management_subnet_name: { get_input: subnet_id }
 
   mysql:
     type: wordpress.nodes.MySQLDatabase
