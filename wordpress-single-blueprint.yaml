@@ -16,6 +16,10 @@ inputs:
     description: >
       Flavor of the agent VM's
 
+  size_wordpress:
+    description: >
+      Flavor of the agent VM's WordPress
+
   agent_user:
     description: >
       User for connecting to agent VM's
