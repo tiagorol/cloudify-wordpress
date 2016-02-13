@@ -1,6 +1,7 @@
 image: ami-d05e75b8
 size: m3.medium
 size_wordpress: m3.medium
+subnet_id: subnet-20bd8308
 agent_user: ubuntu
 host_crawler: 52.71.154.155
 benchmark_id: 1
