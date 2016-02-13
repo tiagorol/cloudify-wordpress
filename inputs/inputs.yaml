@@ -1,8 +1,8 @@
 image: ami-d05e75b8
 size: m3.2xlarge
-size_wordpress: m3.medium
+size_wordpress: m3.large
 agent_user: ubuntu
 host_crawler: 52.71.154.155
-benchmark_id: 1
+benchmark_id: 2
 rounds: 1
-workloads: 100,300,500,700,900,1100,1300,1500,1700,1900,2100,2300,2500,2700,2900,3100
+workloads: 100,300,500,700,900,1100,1300,1500,1700,1900,2100
