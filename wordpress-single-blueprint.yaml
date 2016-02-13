@@ -46,7 +46,7 @@ node_templates:
     type: cloudify.aws.nodes.Instance
     properties:
       image_id: { get_input: image }
-      instance_type: { get_input: size }
+      instance_type: { get_input: size_wordpress }
 
   mysql:
     type: wordpress.nodes.MySQLDatabase
