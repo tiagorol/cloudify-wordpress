@@ -5,5 +5,5 @@ subnet_id: subnet-20bd8308
 agent_user: ubuntu
 host_crawler: 52.71.154.155
 benchmark_id: 1
-rounds: 1
-workloads: 10
+rounds: 3
+workloads: 100,250,400,550,700
