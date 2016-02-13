@@ -8,7 +8,7 @@ ctx logger info "benchmark_id: ${benchmark_id}"
 ctx logger info "rounds: ${rounds}"
 ctx logger info "workloads: ${workloads}"
 
-sleep 120
+sleep 180
 
 ctx logger info "Inicio dos testes com o Crawler..."
 

@@ -16,6 +16,10 @@ inputs:
     description: >
       Flavor of the agent VM's
 
+  size_wordpress:
+    description: >
+      Flavor of the agent VM's WordPress
+
   agent_user:
     description: >
       User for connecting to agent VM's
@@ -69,7 +73,7 @@ node_templates:
       deploy: ${instances_deploy}
     properties:
       image_id: { get_input: image }
-      instance_type: { get_input: size }
+      instance_type: { get_input: size_wordpress }
 
   wordpress:
     type: wordpress.nodes.WordpressApplicationModule
