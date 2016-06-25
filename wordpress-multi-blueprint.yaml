@@ -39,6 +39,10 @@ inputs:
   workloads:
     description: >
       Workload
+      
+  instances_deploy:
+    description: >
+      Instances Deploy WordPress
 
 node_templates:
 
@@ -70,7 +74,7 @@ node_templates:
   wordpress_host:
     type: cloudify.aws.nodes.Instance
     instances:
-      deploy: ${instances_deploy}
+      deploy: { get_input: instances_deploy }
     properties:
       image_id: { get_input: image }
       instance_type: { get_input: size_wordpress }

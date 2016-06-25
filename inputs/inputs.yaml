@@ -3,6 +3,7 @@ size: m3.2xlarge
 size_wordpress: m3.large
 agent_user: ubuntu
 host_crawler: 52.71.154.155
-benchmark_id: 2
+benchmark_id: 1
 rounds: 1
-workloads: 100,300,500,700,900,1100,1300,1500,1700,1900,2100
+workloads: 100,300,500,700
+instances_deploy: 1
