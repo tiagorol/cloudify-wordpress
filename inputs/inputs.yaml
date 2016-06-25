@@ -6,4 +6,3 @@ host_crawler: 52.71.154.155
 benchmark_id: 1
 rounds: 1
 workloads: 100,300,500,700
-instances_deploy: 1
