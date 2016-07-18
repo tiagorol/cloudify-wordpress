@@ -2,13 +2,13 @@
 
 set -e
 
-ctx logger info "Aguardando configuracao instancias WordPress antes de iniciar os testes..."
+ctx logger info "Aguardando configuracao instancias WordPress antes de iniciar os testes (10 min)..."
 ctx logger info "host_crawler: ${host_crawler}"
 ctx logger info "benchmark_id: ${benchmark_id}"
 ctx logger info "rounds: ${rounds}"
 ctx logger info "workloads: ${workloads}"
 
-sleep 180
+sleep 600
 
 ctx logger info "Inicio dos testes com o Crawler..."
 
